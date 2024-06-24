@@ -26,9 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cookieParser())
 
-//Definimos la carpeta publica
-const publicPath = path.resolve("public");
-app.use(express.static(publicPath));
+//definir la carpeta publica
+app.use(express.static("public"));
 
 app.use((req, res, next) => {
     const year = new Date();
