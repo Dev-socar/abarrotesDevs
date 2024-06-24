@@ -18,7 +18,7 @@ import {
   frutas,
 } from "../controllers/paginasController.js";
 
-import { dashboardFrutas } from "../controllers/FrutasController.js";
+import { dashboardFrutas } from "../controllers/frutasController.js";
 
 import { dashboardVerduras } from "../controllers/verdurasController.js";
 
