@@ -1,8 +1,7 @@
 import bcryptjs from "bcryptjs";
 import { Usuario } from "../models/Usuario.js";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
+
 
 export const iniciarSesion = async (req, res) => {
   const { usuario, password } = req.body;
