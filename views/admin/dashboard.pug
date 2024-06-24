@@ -1,0 +1,175 @@
+extends ../templates/template_admin
+
+block contenido 
+    main(class='w-11/12  mt-5 mb-0 mx-auto  md:w-[70%] md:ml-[27.5%]')
+        h1(class='text-6xl text-center font-medium md:text-left ') #{pagina}
+        div(class='grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5')
+            div(class='p-5 bg-slate-100 rounded-md shadow-sm')
+                div(class='flex gap-3 items-center')
+                    div
+                        svg.icon.icon-tabler.icon-tabler-cherry(xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewbox='0 0 24 24' stroke-width='1.5' stroke='#EF4444' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                            path(d='M7.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0')
+                            path(d='M17 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0')
+                            path(d='M9 13c.366 -2 1.866 -3.873 4.5 -5.6')
+                            path(d='M17 15c-1.333 -2.333 -2.333 -5.333 -1 -9')
+                            path(d='M5 6c3.667 -2.667 7.333 -2.667 11 0c-3.667 2.667 -7.333 2.667 -11 0') 
+                        
+                    h2(class=' font-medium text-4xl text-slate-500')
+                        | Frutas 
+                        if frutasCantidad 
+                            span= `(${frutasCantidad})`
+                if(frutas.length !== 0)
+                    h3(class='text-2xl mt-5 text-center text-slate-500') Ultimos Agregados 
+                    .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
+                        table.w-full.text-sm.text-left.text-gray-500(class='rtl:text-right ')
+                            thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                                tr
+                                    th.px-6.py-3.text-center.uppercase(scope='col')
+                                        | Producto
+                                    th.px-6.py-3.text-center.uppercase(scope='col')
+                                        | Precio
+                                    th.px-6.py-3.text-center.uppercase(scope='col')
+                                        | Accion
+                            tbody
+                                each fruta in frutas
+                                    tr.border-b(class='odd:bg-white  even:bg-gray-50')
+                                        th.px-6.py-4.text-center.uppercase.font-medium.text-gray-900.whitespace-nowrap(scope='row')
+                                            | #{fruta.nombre}
+                                        td.px-6.py-4.text-center.uppercase
+                                            | $#{fruta.precio} MXN / #{fruta.peso}
+                                        td.px-6.py-4.text-center
+                                            a.font-medium.text-blue-600(href=`/dashboard/editar/${fruta.id}` class='dark:text-blue-500 hover:underline') Editar
+                else
+                    h3(class='text-2xl mt-2 text-center text-slate-500') Aun no hay Frutas 
+                    a(href="/dashboard/crear", class="bg-blue-500 px-2 py-1.5 rounded-md hover:bg-blue-600 text-white transition-all ease-linear mt-3 block w-full text-center") Agregar Fruta
+
+            div(class='p-5 bg-slate-100 rounded-md shadow-sm')
+                div(class='flex gap-3 items-center')
+                    div 
+                        svg.icon.icon-tabler.icon-tabler-carrot(xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewbox='0 0 24 24' stroke-width='1.5' stroke='#EF4444' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                            path(d='M3 21s9.834 -3.489 12.684 -6.34a4.487 4.487 0 0 0 0 -6.344a4.483 4.483 0 0 0 -6.342 0c-2.86 2.861 -6.347 12.689 -6.347 12.689z')
+                            path(d='M9 13l-1.5 -1.5')
+                            path(d='M16 14l-2 -2')
+                            path(d='M22 8s-1.14 -2 -3 -2c-1.406 0 -3 2 -3 2s1.14 2 3 2s3 -2 3 -2z')
+                            path(d='M16 2s-2 1.14 -2 3s2 3 2 3s2 -1.577 2 -3c0 -1.86 -2 -3 -2 -3z')
+
+                    h2(class=' font-medium text-4xl text-slate-500')   
+                        | Verduras 
+                        if verdurasCantidad 
+                            span= `(${verdurasCantidad})`
+                if(verduras.length !== 0)
+                    h3(class='text-2xl mt-5 text-center text-slate-500') Ultimos Agregados 
+                    .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
+                        table.w-full.text-sm.text-left.text-gray-500(class='rtl:text-right ')
+                            thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                                tr
+                                    th.px-6.py-3.text-center.uppercase(scope='col')
+                                        | Producto
+                                    th.px-6.py-3.text-center.uppercase(scope='col')
+                                        | Precio
+                                    th.px-6.py-3.text-center.uppercase(scope='col')
+                                        | Accion
+                            tbody
+                                each verdura in verduras
+                                    tr.border-b(class='odd:bg-white  even:bg-gray-50')
+                                        th.px-6.py-4.text-center.uppercase.font-medium.text-gray-900.whitespace-nowrap(scope='row')
+                                            | #{verdura.nombre}
+                                        td.px-6.py-4.text-center.uppercase
+                                            | $#{verdura.precio} MXN / #{verdura.peso}
+                                        td.px-6.py-4.text-center
+                                            a.font-medium.text-blue-600(href=`/dashboard/editar/${verdura.id}` class='dark:text-blue-500 hover:underline') Editar
+                else
+                    h3(class='text-2xl mt-2 text-center text-slate-500') Aun no hay Verduras 
+                    a(href="/dashboard/crear", class="bg-blue-500 px-2 py-1.5 rounded-md hover:bg-blue-600 text-white transition-all ease-linear mt-3 block w-full text-center") Agregar Verdura
+
+            div(class='p-5 bg-slate-100 rounded-md shadow-sm')
+                div(class='flex gap-3 items-center')
+                    div 
+                        svg.icon.icon-tabler.icon-tabler-building-store(xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewbox='0 0 24 24' stroke-width='1.5' stroke='#EF4444' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                            path(d='M3 21l18 0')
+                            path(d='M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4')
+                            path(d='M5 21l0 -10.15')
+                            path(d='M19 21l0 -10.15')
+                            path(d='M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4')
+                    h2(class=' font-medium text-4xl text-slate-500')
+                        | Productos 
+                        if productosCantidad 
+                            span= `(${productosCantidad})`
+                if(productos.length !== 0)
+                    h3(class='text-2xl mt-5 text-center text-slate-500') Ultimos Agregados 
+                    .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
+                        table.w-full.text-sm.text-left.text-gray-500(class='rtl:text-right ')
+                            thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                                tr
+                                    th.px-6.py-3(scope='col')
+                                        | Producto
+                                    th.px-6.py-3(scope='col')
+                                        | Precio
+                                    th.px-6.py-3(scope='col')
+                                        | Action
+                            tbody
+                                each producto in productos
+                                    tr.border-b(class='odd:bg-white  even:bg-gray-50')
+                                        th.px-6.py-4.text-center.uppercase.font-medium.text-gray-900.whitespace-nowrap(scope='row')
+                                            | #{producto.nombre}
+                                        td.px-6.py-4.text-center.uppercase
+                                            | $#{producto.precio} MXN / #{producto.peso}
+                                        td.px-6.py-4.text-center
+                                            a.font-medium.text-blue-600(href=`/dashboard/editar/${producto.id}` class='dark:text-blue-500 hover:underline') Editar
+                else
+                    h3(class='text-2xl mt-2 text-center text-slate-500') Aun no hay Productos 
+                    a(href="/dashboard/crear", class="bg-blue-500 px-2 py-1.5 rounded-md hover:bg-blue-600 text-white transition-all ease-linear mt-3 block w-full text-center") Agregar Producto
+
+            div(class='p-5 bg-slate-100 rounded-md shadow-sm lg:col-span-3')
+                div(class='flex gap-3 items-center')
+                    div 
+                        svg.icon.icon-tabler.icon-tabler-star(xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewbox='0 0 24 24' stroke-width='1.5' stroke='#EF4444' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                            path(d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z')
+
+                    h2(class=' font-medium text-4xl text-slate-500')
+                        | De Temporada 
+                        if temporadaCantidad 
+                            span= `(${temporadaCantidad})`
+                if(temporadas.length !== 0)
+                    .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
+                        table.w-full.text-sm.text-left.text-gray-500(class='rtl:text-right ')
+                            thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                                tr
+                                    th.px-6.py-3.text-center(scope='col')
+                                        | Imagen
+                                    th.px-6.py-3.text-center(scope='col')
+                                        | Nombre Producto
+                                    th.px-6.py-3.text-center(scope='col')
+                                        | Precio
+                                    th.px-6.py-3.text-center(scope='col')
+                                        | Cantidad
+                                    th.px-6.py-3.text-center(scope='col')
+                                        | Categoria
+                                    th.px-6.py-3.text-center(scope='col')
+                                        | Pesaje en
+                            tbody
+                                each temporada in temporadas
+                                    tr.border-b(class='odd:bg-white  even:bg-gray-50')
+                                        th.px-6.py-4
+                                            img(src=`/uploads/${temporada.imagen}`, alt=temporada.nombre, class="w-24 h-24 object-cover rounded-md mx-auto my-0")
+                                        th.px-6.py-4.text-center.font-medium.text-gray-900.whitespace-nowrap(scope='row')
+                                            | #{temporada.nombre}
+                                        td.px-6.py-4.text-center
+                                            | $#{temporada.precio} MXN
+                                        td.px-6.py-4.text-center
+                                            | #{temporada.cantidad}
+                                        td.px-6.py-4.text-center
+                                            | #{temporada.categoria}  
+                                        td.px-6.py-4.text-center
+                                            | #{temporada.peso} 
+                                        
+                else
+                    h3(class='text-2xl mt-2 text-center text-slate-500') Aun no hay Frutas, Verduras o Productos
+                        
+
+            
+            

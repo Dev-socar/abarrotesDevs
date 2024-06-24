@@ -1,0 +1,54 @@
+extends ../templates/template_admin
+
+block contenido 
+    main(class='w-11/12  mt-5 mb-0 mx-auto  md:w-[70%] md:ml-[27.5%]')
+        h1(class='text-6xl text-center font-medium md:text-left ') #{pagina}
+        div(class='mt-5 flex justify-center md:justify-end') 
+            a(href="/dashboard/crear", class="bg-blue-500 px-2 py-1.5 rounded-md hover:bg-blue-600 text-white transition-all ease-linear") Agregar Producto
+        if(productos)
+            .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
+                table.w-full.text-sm.text-left.text-gray-500(class='rtl:text-right ')
+                    thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                        tr
+                            th.px-6.py-3.text-center(scope='col')
+                                | Imagen
+                            th.px-6.py-3.text-center(scope='col')
+                                | Nombre Producto
+                            th.px-6.py-3.text-center(scope='col')
+                                | Precio
+                            th.px-6.py-3.text-center(scope='col')
+                                | Cantidad
+                            th.px-6.py-3.text-center(scope='col')
+                                | Categoria
+                            th.px-6.py-3.text-center(scope='col')
+                                | Temporada
+                            th.px-6.py-3.text-center(scope='col')
+                                | Pesaje en
+                            th.px-6.py-3.text-center(scope='col')
+                                | Acciones
+                        tbody
+                            each producto in productos
+                                tr.border-b(class='odd:bg-white  even:bg-gray-50')
+                                    th.px-6.py-4
+                                        img(src=`/uploads/${producto.imagen}`, alt=producto.nombre, class="w-24 h-24 object-cover rounded-md mx-auto my-0")
+                                    th.px-6.py-4.text-center.uppercase.font-medium.text-gray-900.whitespace-nowrap(scope='row')
+                                        | #{producto.nombre}
+                                    td.px-6.py-4.text-center.uppercase
+                                        | $#{producto.precio} MXN
+                                    td.px-6.py-4.text-center.uppercase
+                                        | #{producto.cantidad}
+                                    td.px-6.py-4.text-center.uppercase
+                                        | #{producto.categoria} 
+                                    td.px-6.py-4.text-center.uppercase
+                                        | #{producto.tag} 
+                                    td.px-6.py-4.text-center.uppercase
+                                        | #{producto.peso} 
+                                    td.px-6.py-4.text-center.uppercase
+                                        .flex.justify-center.gap-2.mx-auto.my-0 
+                                            a.font-medium.text-blue-600(href=`/dashboard/editar/${producto.id}` class='text-blue-500 hover:underline') Editar
+                                            a.font-medium.text-blue-600(href='#' class='text-red-500 hover:underline') Eliminar
+        
+        else
+            h2(class='text-center mt-5 text-2xl uppercase md:text-4xl text-gray-400') No hay Productos Aun
+
+        

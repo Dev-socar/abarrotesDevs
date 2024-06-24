@@ -1,0 +1,11 @@
+extends ../templates/template_admin
+
+block contenido 
+    main(class='w-11/12  mt-5 mb-0 mx-auto  md:w-[70%] md:ml-[27.5%]')
+        h1(class='text-6xl text-center font-medium md:text-left ') #{pagina} / #{subpagina}
+        div(class='mt-5 flex justify-center md:justify-end') 
+            a(href="/dashboard", class="bg-blue-500 block text-center w-full md:w-min px-2 py-1.5 rounded-md hover:bg-blue-600 text-white transition-all ease-linear") Cancelar
+        form(action="/dashboard/crear" method='POST' enctype='multipart/form-data' class='mt-5 p-2 shadow-md rounded-md')
+            include ../templates/formulario
+            div(class="md:flex md:justify-end")
+                input(type="submit", value="Crear Articulo" class='border rounded-lg w-full md:w-min bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 cursor-pointer')

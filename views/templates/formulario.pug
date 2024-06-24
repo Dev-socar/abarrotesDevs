@@ -1,0 +1,48 @@
+.mb-5
+    label(for="nombre", class='block mb-1 font-medium text-lg') Nombre del Articulo
+    input(type="text" class=`bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 ${errores && errores.errorNombre ? 'border-red-500': ''}`, placeholder='Ingresa el nombre (manzana, tomate, chocolate)', id='nombre', name='nombre' value=nombre)
+    if(errores && errores.errorNombre)
+        p(class="text-red-500 text-sm")= errores.errorNombre
+.mb-5
+    label(for="cantidad", class='block mb-1 font-medium text-lg') Cantidad en existencia
+    input(type="number" min=0 class=`bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2  ${errores && errores.errorCantidad ? 'border-red-500': ''}` , placeholder='Ingresa la cantidad de productos en bodega' id='cantidad', name='cantidad' value=cantidad)
+    if(errores && errores.errorCantidad )
+        p(class="text-red-500 text-sm")= errores.errorCantidad
+        
+.mb-5
+    label(for="precio", class='block mb-1 font-medium text-lg') Precio del Articulo
+    input(type="number" min=0 class=`bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 ${errores && errores.errorPrecio ? 'border-red-500': ''}`, placeholder='Ingresa el precio en pesos mexicanos', id='precio', name='precio' value=precio)
+    if(errores && errores.errorPrecio)
+        p(class="text-red-500 text-sm")= errores.errorPrecio
+.mb-5
+    label(for="categoria", class='block mb-1 font-medium text-lg') Categoria del Articulo
+    select(name="categoria", class=`bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2  ${errores && errores.errorCategoria ? 'border-red-500': ''}` )
+        option(value="",  selected) Seleccionar Categoria 
+        option(value="Fruta", selected=categoria === 'Fruta' ) Fruta
+        option(value="Verdura", selected=categoria === 'Verdura' ) Verdura
+        option(value="Producto Comercial", selected=categoria === 'Producto Comercial' ) Producto Comercial
+    if(errores && errores.errorCategoria )
+        p(class="text-red-500 text-sm")= errores.errorCategoria
+.mb-5
+    label(for="peso", class='block mb-1 font-medium text-lg') Unidad de peso
+    select(name="peso", class=`bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2  ${errores && errores.errorPeso ? 'border-red-500': ''}`)
+        option(value="",  selected) Seleccionar Unidad de Peso
+        option(value="kg", selected=peso === 'kg') Kg
+        option(value="lb" selected=peso === 'lb') Lb
+        option(value="g" selected=peso === 'g') Gramo
+        option(value="oz" selected=peso === 'oz') Onza
+        option(value="pz" selected=peso === 'pz') Pieza
+    if(errores && errores.errorPeso)
+        p(class="text-red-500 text-sm")= errores.errorPeso
+.mb-5 
+    label(for="imagen", class='block mb-1 font-medium text-lg') Subir Imagen 
+    input(type="file", name="imagen", id="imagen", class=`bg-gray-50 border border-gray-300 text-gray-400 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  ${errores && errores.errorImagen ? 'border-red-500': ''}` accept=".png,.jpg,.jpeg")
+    if(errores && errores.errorImagen)
+        p(class="text-red-500 text-sm")= errores.errorImagen
+.flex.items-center.mb-5 
+    .flex.items-center.h-5
+        input(type="checkbox", class="w-5 h-5 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300", name="tag", id='tag' value="Si", checked=tag === 'Si')
+    label(for="tag",class='text-xl font-medium ms-2') Marcar como de Temporada
+
+
+        

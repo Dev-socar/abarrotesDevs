@@ -1,0 +1,8 @@
+each articulo in articulos  
+    article(class='border rounded-lg shadow-md p-3')
+        img(src=`/uploads/${articulo.imagen}`, alt="Nombre Articulo" class='w-full object-cover rounded-sm h-60')
+        div(class='mt-2 flex flex-col items-start') 
+            h3(class='text-xl font-bold') #{articulo.nombre}
+            p(class='text-lg text-sky-500 font-semibold') $#{articulo.precio}.00/#{articulo.peso}
+            p(class='text-lg text-gray-600') #{articulo.categoria}
+        button(class="text-lg border px-3 py-1 rounded-md hover:bg-orange-200 hover:text-orange-500 my-0 mx-auto block  transition-all ease-linear") Agregar a la Canasta

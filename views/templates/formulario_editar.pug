@@ -1,0 +1,38 @@
+.mb-5
+    label(for="nombre", class='block mb-1 font-medium text-lg') Nombre del Articulo
+    input(type="text" class='bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2', placeholder='Ingresa el nombre (manzana, tomate, chocolate)', id='nombre', name='nombre' value=articulo.nombre)
+.mb-5
+    label(for="cantidad", class='block mb-1 font-medium text-lg') Cantidad en existencia
+    input(type="number" min=1 class='bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2', id='cantidad', name='cantidad' value=articulo.cantidad)
+.mb-5
+    label(for="precio", class='block mb-1 font-medium text-lg') Precio del Articulo
+    input(type="number" min=1 class='bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2', placeholder='Ingresa el precio en pesos mexicanos', id='precio', name='precio' value=articulo.precio)
+.mb-5
+    label(for="categoria", class='block mb-1 font-medium text-lg') Categoria del Articulo
+    select(name="categoria", class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2")
+        option(value="", disabled selected) Seleccionar Categoria 
+        option(value="Verdura" selected=articulo.categoria === 'Verdura') Verdura
+        option(value="Fruta" selected=articulo.categoria === 'Fruta') Fruta
+        option(value="Producto Comercial" selected=articulo.categoria === 'Producto Comercial') Producto Comercial
+.mb-5
+    label(for="peso", class='block mb-1 font-medium text-lg') Unidad de peso
+    select(name="peso", class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2")
+        option(value="", disabled selected) Seleccionar Unidad de Peso
+        option(value="kg" selected=articulo.peso === 'kg') Kg
+        option(value="lb" selected=articulo.peso === 'lb') Lb
+        option(value="g" selected=articulo.peso === 'g') Gramo
+        option(value="oz" selected=articulo.peso === 'oz') Onza
+        option(value="pz" selected=articulo.peso === 'pz') Pieza
+//- .mb-5 
+//-     label(for="imagen", class='block mb-1 font-medium text-lg') Subir Imagen 
+//-     input(type="file", name="imagen", id="imagen", class="bg-gray-50 border border-gray-300 text-gray-400 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" accept=".png,.jpg,.jpeg")
+div(class="mt-3 md:w-56 md:h-56")
+    p.block.mb-1.font-medium.text-lg Imagen Actual
+    img(src=`/uploads/${articulo.imagen}`, alt=articulo.nombre, class=" object-cover rounded-md block h-full w-full")
+.flex.items-center.mb-5.mt-10
+    .flex.items-center.h-5
+        input(type="checkbox", class="w-5 h-5 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300", name="tag", id='tag' value="Si", checked=articulo.tag === 'Si')
+    label(for="tag",class='text-xl font-medium ms-2') Marcar como de Temporada
+
+
+        

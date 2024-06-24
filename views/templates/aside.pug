@@ -1,0 +1,67 @@
+button.inline-flex.items-center.p-2.mt-2.ms-3.text-sm.text-gray-500.rounded-lg(data-drawer-target='logo-sidebar' data-drawer-toggle='logo-sidebar' aria-controls='logo-sidebar' type='button' class='sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600')
+  span.sr-only Open sidebar
+  svg.w-6.h-6(aria-hidden='true' fill='currentColor' viewbox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+    path(clip-rule='evenodd' fill-rule='evenodd' d='M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z')
+
+
+aside#logo-sidebar.fixed.top-0.left-0.z-40.h-screen.transition-transform.-translate-x-full(class='sm:translate-x-0 w-1/2 md:w-1/4' aria-label='Sidebar')
+  .h-full.px-3.py-4.overflow-y-auto.bg-gray-50(class='bg-gray-800')
+    .flex.items-center.mb-5.gap-2(class='ps-2.5')
+      h3.self-center.text-xl.font-semibold.whitespace-nowrap.text-white Bienvenido: 
+      span.self-center.text-xl.font-semibold.whitespace-nowrap.text-blue-500 
+       |#{usuario}
+    ul.space-y-2.font-medium
+      li
+        a.flex.items-center.p-2.text-gray-900.rounded-lg.group(href='/dashboard' class=`text-white hover:bg-gray-700 ${pagina==='Dashboard'? 'bg-gray-700' : ''}`)
+          svg.icon.icon-tabler.icon-tabler-layout-dashboard(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+            path(d='M4 4h6v8h-6z')
+            path(d='M4 16h6v4h-6z')
+            path(d='M14 12h6v8h-6z')
+            path(d='M14 4h6v4h-6z')
+          span.ms-3 Dashboard
+      li
+        a.flex.items-center.p-2.text-gray-900.rounded-lg.group(href='/dashboard/frutas' class=`text-white hover:bg-gray-700 ${pagina==='Frutas'? 'bg-gray-700' : ''}`)
+          svg.icon.icon-tabler.icon-tabler-cherry(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+            path(d='M7.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0')
+            path(d='M17 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0')
+            path(d='M9 13c.366 -2 1.866 -3.873 4.5 -5.6')
+            path(d='M17 15c-1.333 -2.333 -2.333 -5.333 -1 -9')
+            path(d='M5 6c3.667 -2.667 7.333 -2.667 11 0c-3.667 2.667 -7.333 2.667 -11 0')
+
+          span.flex-1.ms-3.whitespace-nowrap Frutas
+      li
+        a.flex.items-center.p-2.text-gray-900.rounded-lg.group(href='/dashboard/verduras' class=`text-white hover:bg-gray-700 ${pagina==='Verduras'? 'bg-gray-700' : ''}`)
+          svg.icon.icon-tabler.icon-tabler-carrot(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+            path(d='M3 21s9.834 -3.489 12.684 -6.34a4.487 4.487 0 0 0 0 -6.344a4.483 4.483 0 0 0 -6.342 0c-2.86 2.861 -6.347 12.689 -6.347 12.689z')
+            path(d='M9 13l-1.5 -1.5')
+            path(d='M16 14l-2 -2')
+            path(d='M22 8s-1.14 -2 -3 -2c-1.406 0 -3 2 -3 2s1.14 2 3 2s3 -2 3 -2z')
+            path(d='M16 2s-2 1.14 -2 3s2 3 2 3s2 -1.577 2 -3c0 -1.86 -2 -3 -2 -3z')
+
+          span.flex-1.ms-3.whitespace-nowrap Verduras
+      li
+        a.flex.items-center.p-2.text-gray-900.rounded-lg.group(href='/dashboard/productos' class=`text-white hover:bg-gray-700 ${pagina==='Productos'? 'bg-gray-700' : ''}`)
+          svg.icon.icon-tabler.icon-tabler-building-store(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+            path(d='M3 21l18 0')
+            path(d='M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4')
+            path(d='M5 21l0 -10.15')
+            path(d='M19 21l0 -10.15')
+            path(d='M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4')
+
+          span.flex-1.ms-3.whitespace-nowrap Productos
+      li
+        form(action="/logout" method="POST") 
+            button(type="submit", class='dark:text-white hover:bg-gray-700 flex items-center p-2 text-gray-900 rounded-lg group w-full') 
+                svg.icon.icon-tabler.icon-tabler-logout(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                  path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                  path(d='M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2')
+                  path(d='M9 12h12l-3 -3')
+                  path(d='M18 15l3 -3')
+
+                span.ms-3.whitespace-nowrap Cerrar Sesion
+          
+

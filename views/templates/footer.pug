@@ -1,0 +1,40 @@
+footer(class='mt-16 bg-slate-100 p-5')
+    div(class='grid md:grid-cols-2')
+        nav(class='flex flex-col items-start justify-center gap-5 p-5')
+            a(href='/' class='text-4xl font-bold')
+                h2 Fruteria Dev
+            div(class='flex flex-col items-start gap-5')
+                a(href='/verduras' class='text-center') Verduras
+                a(href='/frutas' class='text-center') Frutas
+                a(href='/login' class='text-center') Login
+        
+        div(class='p-5 flex flex-col items-end')
+            div(class='flex flex-col')
+                h2(class='text-4xl font-bold mb-3') Direccion
+                div(class='flex gap-2 items-center mb-5')
+                    svg.icon.icon-tabler.icon-tabler-map-pin(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                        path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                        path(d='M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0')
+                        path(d='M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z')
+                    p(class='text-sm') C. 57-A 799-821, Fraccionamiento Las Américas, 97302 Mérida, Yuc.
+                div(class='flex gap-2 items-center mb-5') 
+                    svg.icon.icon-tabler.icon-tabler-phone-call(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                        path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                        path(d='M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2')
+                        path(d='M15 7a2 2 0 0 1 2 2')
+                        path(d='M15 3a6 6 0 0 1 6 6')
+                    a(href="tel:1234567890" class='text-sm') +(52) 12-3456-7890
+                div(class='flex gap-2 items-center') 
+                    svg.icon.icon-tabler.icon-tabler-mail-forward(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                        path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                        path(d='M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5')
+                        path(d='M3 6l9 6l9 -6')
+                        path(d='M15 18h6')
+                        path(d='M18 15l3 3l-3 3')
+                    a(href="mailto:frutas@fruteriadevs.com" class='text-sm') frutas@fruteriadevs.com
+
+    p(class='text-center')
+        | &copy; Fruteria Devs, Todos los derechos reservados 
+        span= actualYear
+
+    
