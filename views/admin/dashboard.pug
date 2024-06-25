@@ -17,8 +17,8 @@ block contenido
                         
                     h2(class=' font-medium text-4xl text-slate-500')
                         | Frutas 
-                        if frutasCantidad 
-                            span= `(${frutasCantidad})`
+                        if frutas.length !== 0
+                            span= `(${frutas.length})`
                 if(frutas.length !== 0)
                     h3(class='text-2xl mt-5 text-center text-slate-500') Ultimos Agregados 
                     .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
@@ -57,8 +57,8 @@ block contenido
 
                     h2(class=' font-medium text-4xl text-slate-500')   
                         | Verduras 
-                        if verdurasCantidad 
-                            span= `(${verdurasCantidad})`
+                        if verduras.length !== 0 
+                            span= `(${verduras.length !== 0})`
                 if(verduras.length !== 0)
                     h3(class='text-2xl mt-5 text-center text-slate-500') Ultimos Agregados 
                     .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
@@ -96,8 +96,8 @@ block contenido
                             path(d='M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4')
                     h2(class=' font-medium text-4xl text-slate-500')
                         | Productos 
-                        if productosCantidad 
-                            span= `(${productosCantidad})`
+                        if productos.length !== 0 
+                            span= `(${productos.length})`
                 if(productos.length !== 0)
                     h3(class='text-2xl mt-5 text-center text-slate-500') Ultimos Agregados 
                     .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
@@ -132,8 +132,8 @@ block contenido
 
                     h2(class=' font-medium text-4xl text-slate-500')
                         | De Temporada 
-                        if temporadaCantidad 
-                            span= `(${temporadaCantidad})`
+                        if temporadas.length !== 0 
+                            span= `(${temporadas.length})`
                 if(temporadas.length !== 0)
                     .relative.overflow-x-auto.shadow-md.mt-5(class='sm:rounded-lg')
                         table.w-full.text-sm.text-left.text-gray-500(class='rtl:text-right ')
