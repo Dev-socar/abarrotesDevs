@@ -8,13 +8,9 @@ const dashboard = async (req, res) => {
   try {
     const [
       frutas,
-      frutasCantidad,
       temporadas,
-      temporadaCantidad,
       verduras,
-      verdurasCantidad,
       productos,
-      productosCantidad,
       
     ] = await Promise.all([
       Producto.findAll({
@@ -22,21 +18,18 @@ const dashboard = async (req, res) => {
         limit: 5,
         where: { categoria: "Fruta" },
       }),
-      Producto.count({ where: { categoria: "Fruta" } }),
       Producto.findAll({ where: { tag: "Si" }, order: [["id", "DESC"]] }),
-      Producto.count({ where: { tag: "Si" } }),
       Producto.findAll({
         order: [["id", "DESC"]],
         limit: 5,
         where: { categoria: "Verdura" },
       }),
-      Producto.count({ where: { categoria: "Verdura" } }),
       Producto.findAll({
         order: [["id", "DESC"]],
         limit: 5,
         where: { categoria: "Producto Comercial" },
-      }),
-      Producto.count({ where: { categoria: "Producto Comercial" } }),
+      })
+      
 
     ]);
     
@@ -44,13 +37,9 @@ const dashboard = async (req, res) => {
       pagina: "Dashboard",
       usuario,
       frutas,
-      frutasCantidad,
       verduras,
-      verdurasCantidad,
       temporadas,
-      temporadaCantidad,
       productos,
-      productosCantidad,
     });
   } catch (error) {
     console.log(error);
